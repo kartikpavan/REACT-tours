@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Tour({ id, image, name, info, price, removeTour }) {
   const [readMore, setReadmMore] = useState(false);
+
+  const handleRemoveTour = () => {
+    removeTour(id);
+  };
+
   return (
     <article>
       <img src={image} alt={name} />
@@ -21,7 +26,7 @@ function Tour({ id, image, name, info, price, removeTour }) {
             {readMore ? "Show Less" : "Show More...."}
           </button>
         </p>
-        <button className="btn" onClick={() => removeTour(id)}>
+        <button className="btn" onClick={handleRemoveTour}>
           Not Interested
         </button>
       </footer>
